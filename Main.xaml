@@ -672,7 +672,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Send an email back to business containing the list of valid and invalid postcodes.&#xD;&#xA;&#xD;&#xA;End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,218.4" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Send an email back to business containing the list of valid and invalid postcodes.&#xD;&#xA;&#xD;&#xA;End process and close applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,218.4" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
                                 <Sequence sap:VirtualizedContainerService.HintSize="499.2,610.4" sap2010:WorkflowViewState.IdRef="Sequence_31">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -801,7 +801,7 @@
         <Transition sap2010:Annotation.AnnotationText="This is a simple mecanism to stop the process.&#xA;In reallife scenario you can stop the process when there is no more data to process or on a schedule." DisplayName="No Data" sap:VirtualizedContainerService.HintSize="429.6,969.6" sap2010:WorkflowViewState.IdRef="Transition_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:PointCollection x:Key="ConnectorLocation">349.533333333333,313.933333333333 349.533333333333,343.933333333333 194.33333333333297,343.933333333333 194.33333333333297,456.4 90,456.4 90,426.4</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">349.533333333333,313.933333333333 349.533333333333,343.93333333333294 194.33333333333303,343.93333333333294 194.33333333333303,456.4 90,456.4 90,426.4</av:PointCollection>
               <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
               <x:Int32 x:Key="DestConnectionPointIndex">39</x:Int32>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
