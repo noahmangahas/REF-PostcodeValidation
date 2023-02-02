@@ -1,0 +1,223 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CheckPostcodeValidity" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_AuspostURL" Type="InArgument(x:String)" />
+    <x:Property Name="in_Postcode" Type="InArgument(x:String)" />
+    <x:Property Name="out_PostcodeValidity" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1162.4,826.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>CheckPostcodeValidity_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="70">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="94">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Input the data from the queue into the Auspost Postcode Search website.&#xA;&#xA;Pre-condition: The website is open.&#xA;&#xA;Post-condition: The postcode is checked if valid." DisplayName="CheckPostcodeValidity" sap:VirtualizedContainerService.HintSize="490.4,698.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="SearchResult" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_PostcodeValidity" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="428,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[String.Format(&quot;Starting validity check of postcode: {0}&quot;, in_Postcode)]" />
+    <uix:NApplicationCard sap2010:Annotation.AnnotationText="Navigate to the Auspost Postcode Finder website and search for the postcode.&#xA;&#xA;Returns the search result for checking if the input is a valid postcode." AttachMode="ByInstance" DisplayName="Use Browser Edge: Postcodes Australia | Postcode Search &amp; Finder - Australia Post" sap:VirtualizedContainerService.HintSize="428,128.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="1a757b92-6c8d-438e-a470-87eaaa3f8129" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,728.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Find a postcode'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="337.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="Simulate" ScopeIdentifier="1a757b92-6c8d-438e-a470-87eaaa3f8129" Text="[in_Postcode]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://auspost.com.au/postcode" DesignTimeRectangle="243, 528, 1211, 65" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT searchCriteria.lo…'" FullSelectorArgument="&lt;webctrl id='searchCriteria.location' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='searchCriteria.location' tag='INPUT' type='text' class='text fn_autocomplete fn_valid_minChars3 text fn_valid_minChars3 ac_input' aaname='' /&gt;" Guid="0312e935-354a-4ae3-ab13-1acb2d951c6d" ImageBase64="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" InformativeScreenshot="a42d14ee5a9175c188f75dba5aeb9017.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Postcodes Australia | Postcode Search &amp;amp; Finder - Australia Post' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="198, 337, 1463, 110" ElementType="Text" FriendlyName="'Find a postcode'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='' aaname='Find a postcode' check:innerText='Find a postcode' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="337.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1a757b92-6c8d-438e-a470-87eaaa3f8129" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://auspost.com.au/postcode" DesignTimeRectangle="1453, 474, 163, 65" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl parentid='postcodeForm' tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='postcodeForm' tag='BUTTON' type='submit' class='button primary' aaname='Search' check:innerText='Search' /&gt;" Guid="d92811e6-bac1-480a-af19-d3059ea72c22" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKcAAABFCAYAAAAvmvZlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANkSURBVHhe7ZlBTttAGEZ9jYoLVByGA3AZ1tyEBTdgwQaJQ5BVRStUKCJAIoKEphnbH/nHmXGgVd3f1nvSUwUeO7H8+O2kVQBwCnGCW4gT3FLdfP8Wlovn9scQFmfn4frgMMz29sPsy1fEf++6tdhcbM9SPT7chfvbm/C6eqk3ZndGHEgbaPX6sgjLp4cwv79tJmZmB8ShjA2KOs7or58/uJXj/3fdoEjjzC1GHFhBnOhOQZzoTkGc6E5BnOhOQZzoTkGc6E5BnOhOQZzoTkGc6E5BnOhOQZzoTkGc6E5BnOhOQZzoTkGc6E5BnOhOQZzoTkGc6E5BnOhOMdE4j8Ny3p6h5eo0s3Yc3l08ticRwuokv2YqiunFeXQZ3tqTyzML89x+ziXOzMJxWZiYXUY4QYkzs3BUJlOzMyGTbY9heWS2jUDizCwclSbAt4vjre3zq3bjmu0LfBpW7TaRO0btyaxdYdl+XNi83vqP4aT8h2PDE933143TnktkSsGKid3W08CKcXXte07tPALkQtqQTuRuQO+8H7P/McS+//7XbZhKoGJyH4jKF7H0QcgEMr8Md+3vu5OqWWviN9HatTaoJE5z7N79Co8f6XmZc7FTfMTfRljF5OKMFidWSzJhzMVNJ4+JdtdFN8coxbk91UzonXDr/Tq/K/0B9B1nrIpJxvlu9tmwQbGkE6lA8aL3P6du4sx8ALMT8gMTz77PNHTinITJRG2D+FCcpdtoBuL8e8Wk4uyNoXb7QpYvesbuBydFtfO2TpyfUUwqznQK9n21s0YXshBWzmIgfxJnT1TN65S/biLOUWou1A42Edl9TESZ4Gwg+f0/E+fHjqcQiTOzcHTueCas6d5Ge/cxE6x7W89hjr37MWPHf7eaYxFnZuE4LV30UiTRdGLV5J4FtwJt4t2EuIl5d5yNNjyRBkic2YWIQyuIE90piBPdKYgT3SmIE90piBPdKYgT3SmIE90piBPdKYgT3SmIE90piBPdKYgT3SmIE90piBPdKYgT3SmIE90piBPdKYgT3SmIE90piBPdKYgT3SnSOPf2s4sRB3PdoKjjXD49hPn9bbg+OMzvgDiQsUFRxTDj1HxdvYTF2Xl2B8ShjA2KKk7MGKaIG+sJyi0eh3LdWmzOhhmp2n8BnBHCb8F3dZaEBy/BAAAAAElFTkSuQmCC" InformativeScreenshot="aa46bc5492979d58b6fdca5849dff8db.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Postcodes Australia | Postcode Search &amp;amp; Finder - Australia Post' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="198, 283, 1463, 110" ElementType="Text" FriendlyName="'Find a postcode'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='' aaname='Find a postcode' check:innerText='Find a postcode' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetText DisplayName="Get Search Result" sap:VirtualizedContainerService.HintSize="337.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="1a757b92-6c8d-438e-a470-87eaaa3f8129" TextString="[SearchResult]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://auspost.com.au/postcode/2000" DesignTimeRectangle="243, 631, 1373, 46" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Your search'" FullSelectorArgument="&lt;webctrl parentid='app_results' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='app_results' tag='P' type='' class='searchResults' aaname='                                                                                                                                                                                                                    Your search for                                                          returned  result(s).Please select an item from the list below to view details.                                                                                                                                                                                                    ' /&gt;" Guid="5cc92b5b-001c-4b65-9506-e531dcbf852b" InformativeScreenshot="7be1963281091f48515ddab67d341eb4.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='2000 Postcode - Australia Post' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="243, 588, 1373, 30" ElementType="Text" FriendlyName="'Results'" FullSelectorArgument="&lt;webctrl idx='2' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='H2' class='' aaname='Results' check:innerText='Results' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABWEAAAAiCAYAAAA+nRsjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAU6SURBVHhe7d3ZThtXHMDhvmAv+gJ5iyj3fYrkNs+QqCVpSRXAxiZsSaOugrA7mC2RWmyWnHoOYzy2ZwBDpqXk+6QjlJlhMLn86fA/XwUAAAAAAEojwgIAAAAAlEiEBQAAAAAokQgLAAAAAFAiERYAAAAAoEQiLAAAAABAiURYAAAAAICM09PT0G61wqdPn9Ir+ZLnjtrt+PUiIiwAAAAAQKrdboX93WbYWH0XDvZ2Y2TNi7Ht1mHY32mGzbWVzvM74fjoKL0zTIQFAAAAAEjtbDfCm9lamPrx+zBXnQzNxtZQYE3+vbW2EuZrU2FqfCwszlTCh4P99O4wERYAAAAAIBUj7Fw9TP7wXQyxC/VKaGyshZOTk3g/GT2wsbIcFmqVzv2xUEki7Kvp8PGqEXb76f1w75uvL1kPw9v0+dso+zs8XkgvnmuE5w9u9+cHAAAAAP47rdZh2FpfDbOVlzHCVl88C69f1eLYgWRO7PrKclisV+P1JMDOTU+EZmMzji0oco0Ie7aGA+ftUBhh3z8J38brIiwAAAAAkC+Z/3r4919hfWUpzFUnQmX8Wai+eB4W65Ww9NsvYX568izAdlYyhiCJs0VzY7uuHWHvPXgSttPvu03yI2yyA7b72UVYAAAAAKBYElSTsLq69EeYr03GENsdT5B8jSMIZipxV+zJ8XH6XcUKI2zuTtfz3aS3N2aKsAAAAADA55DMgV3+/dcwM/lTjK/dVZ94EdbfLV0pwCZGi7Adbx91Y+b98Px9erFr4eH59xc+Ey2Gx33Pna1vnzbS+10XxNNsEH60mF7M+R36wnF29d6X/Z68+wAAAADAl6cows5MlhlhL9gJmx8yz1bfuwqj6NnqD7HlR9heVM5bQiwAAAAAfGnOxxEs/xnma1M54wiSebDVsLH67mbjCC5dmfCZDZ29iJofUPNDb/bZ7O7ZzxBho6L3ZHbkZmfcZnf0Zn9PAAAAAOBO6x7MtbGyHOamJ+IBXHkHcyXr9Uw1bJV2MNfAoVy93aTFobQbRPt2nl4aOEuOsH27ZItGJwAAAAAAX4p26zBsra+G2erLuPM1xtZXtbC5ttK514qHcS3Wq/F6EmiTKNtsbMUQW2S0CJsbTbOBs3id75AdmhvbXQORNSp7J2zxZx+eTwsAAAAA3HW72+/Dz3P18/EDC/VKaGysxfmwidPT07hLdqE2Fe9XxsdipP14sB/v57nCTNiBQ7SGQuzVImxRKB1afbtsy46wifxDwrqr9w4AAAAA4K7b2W6EN7O1GFjnqhOh2dgMx0dH6d0zyb+TnbHJLtip8bEYaj/s76V3h13tYK6+P9sf4fCsywy8d/j9/0aE7ck/pGvE3wkAAAAA+N9qt1thf7cZD9062NspnPfaOjwMezvNGGOTr0dH1xhHMLgDtH/3av/81F68vMFc1dzDsLLxdODdBYdn3STC9lzwcwEAAACAOy0ZOZDMf73osK1EfK7djl8vcuUI2x8mOys7NiAbRDPXh+NscdzM/uzsTtvs7tTe9eIRCSNF2IKQ2/9+O2EBAAAAgOsbIcJ2DIwPyD6T/6f86coGzoIRBOerbyZsR+FBXpl1aYTN+3xncfXCz91Zuf8PAAAAAABXNFqE7cg+M7RLNCeY5r9nYFdtd/XtRs0YfG/y3EgzYRODPzOzEzc39BpDAAAAAADcXF+EBQAAAADg8xJhAQAAAABKJMICAAAAAJRIhAUAAAAAKJEICwAAAABQIhEWAAAAAKBEIiwAAAAAQIlEWAAAAACAEomwAAAAAAClCeEfkhL02yumhrUAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADHSURBVDhPY7gjofGfEkxbAx6YOv9/GhQHprHJgzCGASDF346ehGt8Xdv2//ejJ2AxbAahGABS8Pfjp/8gADIAJn5PzfT/jyvXwXLohqAYALIFBpANAOHHzgFgcZAaZHG4ASCTkQG6ASAMA8iugBsA0oAM0A1AtgBZjmgDcHkPrxdAYi/zK8GxgAywegGE0W151zMFykMAnIEIwiCTkaMR3QCC0QjCIAUgW9ANAImhawZhDAOQMUgDLCywyYMwXgOIwRQaoPEfANZ6igVztqEBAAAAAElFTkSuQmCC" InformativeScreenshot="b93b9118f451a006d7911efb0f4621d9.jpg" Selector="&lt;html app='msedge.exe' title='Postcodes Australia | Postcode Search &amp;amp; Finder - Australia Post' /&gt;" Url="[in_AuspostURL]" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <If sap2010:Annotation.AnnotationText="If the search result returned &quot;0 result(s)&quot; it means the postcode is not valid. Otherwise, if the search returned any number of results, it means the postcode is associated to a suburb and is valid." Condition="[SearchResult.Contains(&quot;returned 0 result(s)&quot;)]" DisplayName="If - check search returned 0 results" sap:VirtualizedContainerService.HintSize="428,192.8" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_PostcodeValidity]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">Postcode is invalid.</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_PostcodeValidity]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">This is a valid postcode.</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
